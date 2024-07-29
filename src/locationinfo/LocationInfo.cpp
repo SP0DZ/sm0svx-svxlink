@@ -143,6 +143,9 @@ bool LocationInfo::initialize(const Async::Config &cfg, const std::string &cfg_n
 
   value = cfg.getValue(cfg_name, "CALLSIGN");
 
+ /* SP0DZ - remove EL/ER Vailidation 
+ 
+ 
   if (value.find("EL-") != string::npos)
   {
     LocationInfo::_instance->loc_cfg.prefix = "L";
@@ -158,8 +161,8 @@ bool LocationInfo::initialize(const Async::Config &cfg, const std::string &cfg_n
          "Example: CALLSIGN=ER-DL1ABC\n";
     return false;
   }
-
-  if (value.erase(0,3).length() < 4)
+*/
+  if (value.erase(0,0).length() < 4)
   {
     cerr << "*** ERROR: variable CALLSIGN in section " <<
         cfg_name << " is missing or wrong\nExample: CALLSIGN=ER-DL1ABC\n";
